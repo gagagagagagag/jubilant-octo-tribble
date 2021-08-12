@@ -2,7 +2,8 @@ import React from 'react'
 import useSWR from 'swr'
 import { RouteComponentProps } from 'react-router-dom'
 
-import { UsersResponse } from '../../core/models/user'
+import { User } from '../../core/models/user'
+import { SearchResult } from '../../core/models/search'
 import fetcher from '../../core/axios/fetcher'
 import { SearchContext } from '../../core/contexts/searchContext'
 import Empty from '../../components/UI/Empty'
@@ -10,7 +11,7 @@ import ListItem from '../../components/UI/ListItem'
 
 const Search: React.FC<RouteComponentProps> = ({ history }) => {
   const { searchQuery } = React.useContext(SearchContext)
-  const { data, isValidating } = useSWR<UsersResponse>(
+  const { data, isValidating } = useSWR<SearchResult<User>>(
     searchQuery !== '' ? `/search/users?q=${searchQuery}` : null,
     fetcher
   )

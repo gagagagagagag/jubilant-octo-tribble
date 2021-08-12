@@ -10,7 +10,15 @@ interface Props {
 const ListItem = ({ label, icon, onClick }: Props) => {
   return (
     <div className={classes.Container} onClick={onClick}>
-      {icon && <img src={icon} alt={''} width={20} height={20} />}
+      {icon && (
+        <img
+          className={classes.Icon}
+          src={icon}
+          alt={''}
+          width={20}
+          height={20}
+        />
+      )}
       <span className={classes.Label}>{label}</span>
       <img src={rightArrowIcon} alt={''} width={7} height={16} />
     </div>

@@ -1,0 +1,10 @@
+.Container {
+  display: flex;
+  flex-direction: column;
+}
+
+.Title {
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 25px;
+}
