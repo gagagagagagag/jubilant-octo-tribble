@@ -11,6 +11,7 @@ const TopRepos: React.FC<Props> = ({ repos }) => {
   return (
     <div className={classes.Container}>
       <p className={classes.Title}>Top repositories</p>
+      {repos.length === 0 && <span className={classes.Empty}>Empty</span>}
       {repos.map((repo) => (
         <ListItem
           key={repo.id}

@@ -32,7 +32,7 @@ const Details: React.FC<RouteComponentProps<{ login: string }>> = ({
       <ProfileInfo
         name={userData.name || userData.login}
         imgSrc={userData.avatar_url}
-        bio={userData.bio || ''}
+        bio={userData.bio}
       />
       <TopRepos repos={reposData.items} />
     </div>

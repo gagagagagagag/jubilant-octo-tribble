@@ -2,7 +2,7 @@ import classes from './ProfileInfo.module.css'
 
 interface Props {
   name: string
-  bio: string
+  bio?: string | null
   imgSrc: string
 }
 
@@ -15,7 +15,7 @@ const ProfileInfo: React.FC<Props> = ({ name, bio, imgSrc }) => {
       </div>
       <div className={classes.AboutContainer}>
         <p className={classes.About}>About</p>
-        <p className={classes.Bio}>{bio}</p>
+        <p className={classes.Bio}>{bio || 'Empty'}</p>
       </div>
     </div>
   )
