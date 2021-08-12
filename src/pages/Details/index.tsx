@@ -14,13 +14,19 @@ const Details: React.FC<RouteComponentProps<{ login: string }>> = ({
 }) => {
   const { data: userData, isValidating: isValidatingUser } = useSWR<User>(
     `/users/${match.params.login}`,
-    fetcher
+    fetcher,
+    {
+      revalidateOnFocus: false,
+    }
   )
   const { data: reposData, isValidating: isValidatingRepos } = useSWR<
     SearchResult<Repository>
   >(
     `/search/repositories?q=user:${match.params.login}&sort=stars&order=desc&per_page=4`,
-    fetcher
+    fetcher,
+    {
+      revalidateOnFocus: false,
+    }
   )
 
   if (isValidatingUser || isValidatingRepos) return <Loading />

@@ -13,7 +13,10 @@ const Search: React.FC<RouteComponentProps> = ({ history }) => {
   const { searchQuery } = React.useContext(SearchContext)
   const { data, isValidating } = useSWR<SearchResult<User>>(
     searchQuery !== '' ? `/search/users?q=${searchQuery}` : null,
-    fetcher
+    fetcher,
+    {
+      revalidateOnFocus: false,
+    }
   )
 
   if (isValidating) return <div>Loading...</div>
