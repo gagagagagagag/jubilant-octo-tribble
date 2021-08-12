@@ -1,0 +1,12 @@
+.Container {
+  background: #f7f7f7;
+  border-radius: 6px;
+  padding: 14px 16px;
+  display: flex;
+  cursor: pointer;
+}
+
+.Label {
+  flex: 1;
+  font-weight: 500;
+}

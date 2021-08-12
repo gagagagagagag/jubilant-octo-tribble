@@ -1,9 +1,11 @@
 import Empty from '../../components/UI/Empty'
+import ListItem from '../../components/UI/ListItem'
 
 const Search = () => {
   return (
     <div>
-      <Empty searchQuery={'mumbojumbo'} />
+      <ListItem label={'username'} onClick={() => {}} />
+      {/* <Empty searchQuery={'mumbojumbo'} /> */}
     </div>
   )
 }
