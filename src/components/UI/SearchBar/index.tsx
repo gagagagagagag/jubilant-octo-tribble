@@ -4,7 +4,11 @@ const SearchBar = () => {
   return (
     <div className={classes.Container}>
       <form>
-        <input type={'text'} className={classes.Input} />
+        <input
+          type={'text'}
+          className={classes.Input}
+          placeholder={'Search GitHub users'}
+        />
         <button type={'submit'} className={classes.Button}>
           Search
         </button>
