@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter as Router } from 'react-router-dom'
 import './index.css'
 import App from './components/App'
+import SearchProvider from './core/contexts/searchContext'
 import reportWebVitals from './reportWebVitals'
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <App />
+      <SearchProvider>
+        <App />
+      </SearchProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

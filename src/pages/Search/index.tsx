@@ -1,13 +1,13 @@
-import Empty from '../../components/UI/Empty'
-import ListItem from '../../components/UI/ListItem'
+import React from 'react'
+
+import { SearchContext } from '../../core/contexts/searchContext'
+// import Empty from '../../components/UI/Empty'
+// import ListItem from '../../components/UI/ListItem'
 
 const Search = () => {
-  return (
-    <div>
-      <ListItem label={'username'} onClick={() => {}} />
-      {/* <Empty searchQuery={'mumbojumbo'} /> */}
-    </div>
-  )
+  const { searchQuery } = React.useContext(SearchContext)
+
+  return <div>{searchQuery}</div>
 }
 
 export default Search
