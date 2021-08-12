@@ -1,4 +1,5 @@
-import React, { useState, useCallback } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
+import { useHistory, useLocation } from 'react-router-dom'
 
 interface SearchQuery {
   searchQuery: string
@@ -11,11 +12,28 @@ export const SearchContext = React.createContext<SearchQuery>({
 })
 
 const SearchProvider: React.FC = ({ children }) => {
+  const history = useHistory()
+  const { pathname } = useLocation()
   const [searchQuery, setSearchQuery] = useState<string>('')
 
-  const changeQuery = useCallback((newQuery: string) => {
-    setSearchQuery(newQuery)
-  }, [])
+  useEffect(() => {
+    if (pathname === '/search' && searchQuery !== '') {
+      history.replace({
+        search: `?q=${searchQuery}`,
+      })
+    }
+  }, [searchQuery, pathname, history])
+
+  const changeQuery = useCallback(
+    (newQuery: string) => {
+      setSearchQuery(newQuery)
+
+      if (pathname !== '/search') {
+        history.push('/search')
+      }
+    },
+    [history, pathname]
+  )
 
   return (
     <SearchContext.Provider value={{ searchQuery, changeQuery }}>
