@@ -1,6 +1,7 @@
 import React, { useRef } from 'react'
 
 import classes from './SearchBar.module.css'
+import searchIcon from '../../../assets/icons/search.svg'
 import { SearchContext } from '../../../core/contexts/searchContext'
 
 const SearchBar = () => {

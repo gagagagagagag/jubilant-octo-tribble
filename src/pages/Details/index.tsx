@@ -27,8 +27,6 @@ const Details: React.FC<RouteComponentProps<{ login: string }>> = ({
 
   if (!userData || !reposData) return <div>Not Found!</div>
 
-  console.log(reposData)
-
   return (
     <div>
       <ProfileInfo

@@ -13,12 +13,19 @@
 
 .Input {
   background: #f3f3f3;
+  background-image: url('../../../assets/icons/search.svg');
+  background-size: 15px 15px;
+  background-repeat: no-repeat;
+  background-position: 6px 11px;
   border-radius: 10px;
   width: 242px;
+  text-indent: 23px;
 }
 
 .Button {
   background: #452cdc;
   border-radius: 8px;
   color: white;
+  padding: 10px 24px;
+  margin-left: 15px;
 }
