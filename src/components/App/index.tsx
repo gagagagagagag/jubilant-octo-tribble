@@ -8,7 +8,7 @@ const App = () => {
   return (
     <PageLayout>
       <Switch>
-        <Route path={'/search/details/:id'} component={Details} />
+        <Route path={'/search/details/:login'} component={Details} />
         <Route path={'/search'} component={Search} />
         <Redirect to={'/search'} />
       </Switch>

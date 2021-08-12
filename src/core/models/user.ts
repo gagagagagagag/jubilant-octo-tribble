@@ -1,3 +1,5 @@
+// Created using quicktype.io
+
 export interface UsersResponse {
   incomplete_results: boolean
   items: User[]
@@ -21,9 +23,23 @@ export interface User {
   repos_url: string
   events_url: string
   received_events_url: string
-  type: Type
+  type: string
   site_admin: boolean
-  score: number
+  name?: null | string
+  company?: null | string
+  blog?: string
+  location?: null | string
+  email?: null | string
+  hireable?: boolean | null
+  bio?: null | string
+  twitter_username?: null | string
+  public_repos?: number
+  public_gists?: number
+  followers?: number
+  following?: number
+  created_at?: Date
+  updated_at?: Date
+  score?: number
 }
 
 export enum Type {

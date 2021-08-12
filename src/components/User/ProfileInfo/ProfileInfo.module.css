@@ -1,0 +1,39 @@
+.Container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.PictureContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 34px;
+}
+
+.ProfilePic {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  margin-bottom: 14px;
+}
+
+.UserName {
+  font-weight: 500;
+  font-size: 17px;
+}
+
+.AboutContainer {
+  align-self: flex-start;
+}
+
+.About {
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.Bio {
+  font-size: 13px;
+  color: #7d838b;
+}
