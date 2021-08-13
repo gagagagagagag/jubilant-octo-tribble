@@ -1,0 +1,17 @@
+.Container {
+  display: flex;
+  justify-content: center;
+}
+
+.ErrorContainer {
+  padding: 20px;
+  border: 2px solid #e91e63;
+  background-color: rgba(237, 75, 130, 0.8);
+  border-radius: 10px;
+}
+
+.Message {
+  font-weight: 500;
+  font-size: 17px;
+  color: white;
+}
