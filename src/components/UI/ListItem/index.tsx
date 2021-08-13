@@ -9,7 +9,7 @@ interface Props {
 
 const ListItem = ({ label, icon, onClick }: Props) => {
   return (
-    <div className={classes.Container} onClick={onClick}>
+    <div className={classes.Container} onClick={onClick} role={'listitem'}>
       {icon && (
         <img
           className={classes.Icon}

@@ -6,7 +6,7 @@ interface Props {
 
 const Empty = ({ searchQuery }: Props) => {
   return (
-    <div className={classes.Container}>
+    <div className={classes.Container} role={'dialog'} aria-label={'empty'}>
       <span className={classes.Text}>
         We couldn't find anything like {searchQuery}
       </span>
