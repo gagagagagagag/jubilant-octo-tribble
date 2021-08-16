@@ -3,7 +3,8 @@ import { RouteComponentProps } from 'react-router-dom'
 
 import { User } from '../../core/models/user'
 import { Repository } from '../../core/models/repository'
-import { SearchResult } from '../../core/models/search'
+import { getUserDetails } from '../../core/actions/user'
+import { getTopRepos } from '../../core/actions/repo'
 import ShowError from '../../components/UI/ShowError'
 import Loading from '../../components/UI/Loading'
 import ProfileInfo from '../../components/User/ProfileInfo'
@@ -24,19 +25,9 @@ const Details: React.FC<RouteComponentProps<{ login: string }>> = ({
       setUserLoading(true)
 
       try {
-        const response = await fetch(`https://api.github.com/users/${login}`, {
-          headers: {
-            Accept: 'application/vnd.github.v3+json',
-          },
-        })
+        const userDetails = await getUserDetails(login)
 
-        const responseJson = await response.json()
-
-        if (!response.ok) throw new Error(responseJson.message)
-
-        const responseData: User = responseJson
-
-        setUserData(responseData)
+        setUserData(userDetails)
       } catch (error) {
         setError(error)
       } finally {
@@ -50,22 +41,9 @@ const Details: React.FC<RouteComponentProps<{ login: string }>> = ({
       setRepoLoading(true)
 
       try {
-        const response = await fetch(
-          `https://api.github.com/search/repositories?q=user:${login}&sort=stars&order=desc&per_page=4`,
-          {
-            headers: {
-              Accept: 'application/vnd.github.v3+json',
-            },
-          }
-        )
+        const topRepos = await getTopRepos(login)
 
-        const responseJson = await response.json()
-
-        if (!response.ok) throw new Error(responseJson.message)
-
-        const responseData: SearchResult<Repository> = responseJson
-
-        setRepoData(responseData.items)
+        setRepoData(topRepos.items)
       } catch (error) {
         setError(error)
       } finally {

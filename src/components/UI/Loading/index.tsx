@@ -1,5 +1,9 @@
 const Loading = () => {
-  return <div>Loading...</div>
+  return (
+    <div role={'dialog'} aria-label={'loading'}>
+      Loading...
+    </div>
+  )
 }
 
 export default Loading

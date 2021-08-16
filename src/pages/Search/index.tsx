@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { RouteComponentProps } from 'react-router-dom'
 
 import { User } from '../../core/models/user'
-import { SearchResult } from '../../core/models/search'
 import { SearchContext } from '../../core/contexts/searchContext'
+import { getUserList } from '../../core/actions/user'
 import Empty from '../../components/UI/Empty'
 import ListItem from '../../components/UI/ListItem'
 import ShowError from '../../components/UI/ShowError'
@@ -20,22 +20,9 @@ const Search: React.FC<RouteComponentProps> = ({ history }) => {
         setSearchLoading(true)
 
         try {
-          const response = await fetch(
-            `https://api.github.com/search/users?q=${searchQuery}`,
-            {
-              headers: {
-                Accept: 'application/vnd.github.v3+json',
-              },
-            }
-          )
+          const userList = await getUserList(searchQuery)
 
-          const responseJson = await response.json()
-
-          if (!response.ok) throw new Error(responseJson.message)
-
-          const responseData: SearchResult<User> = responseJson
-
-          setSearchData(responseData.items)
+          setSearchData(userList.items)
         } catch (error) {
           setError(error)
         } finally {
@@ -44,14 +31,6 @@ const Search: React.FC<RouteComponentProps> = ({ history }) => {
       }
     })()
   }, [searchQuery])
-
-  // const { data, isValidating } = useSWR<SearchResult<User>>(
-  //   searchQuery !== '' ? `/search/users?q=${searchQuery}` : null,
-  //   fetcher,
-  //   {
-  //     revalidateOnFocus: false,
-  //   }
-  // )
 
   if (searchLoading) return <div>Loading...</div>
 
